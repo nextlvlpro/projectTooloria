@@ -1,9 +1,8 @@
+import MainAppRouter from "./appRouter/MainAppRouter"
 
 function App() {
   return (
-    <>
-     Hello world
-    </>
+    <MainAppRouter />
   )
 }
 
