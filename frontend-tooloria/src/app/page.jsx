@@ -7,7 +7,6 @@ const ToolsGrid = dynamic(() => import('@/components/home/ToolsGrid'), {
   loading: () => <div>Loading...</div>,
 })
 export default function page() {
-  console.log(typeof window === 'undefined' ?'SSR':'CSR')
   return (
     <>
      <Script

@@ -29,7 +29,6 @@ export const metadata = {
 };
 
 export default function HeroSection() {
-  console.log(typeof window === 'undefined' ?'SSR':'CSR')
   return (
     <section className="w-full flex flex-col items-center justify-center p-10 pt-16 text-white animate-fade-in bg-animated-gradient">
       <h1 className="heading-xl">Tooloria — Your All-in-One Online Toolbox</h1>

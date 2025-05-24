@@ -10,7 +10,6 @@ const ThemeToggle = dynamic(() => import("../theme/ThemeToggle"), {
 
 const navLinks = [
   { title: "Home", href: "/" },
-  { title: "Tools", href: "/tools" },
   { title: "About", href: "/about" },
   { title: "Contact", href: "/contact" },
 ];
@@ -28,13 +27,13 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "backdrop-blur-xl bg-gray-900/70 shadow-lg" : "bg-transparent"
+        scrolled ? "backdrop-blur-xl bg-gray-900/70 shadow-lg text-textMain" : "bg-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         <Link
           href="/"
-          className="text-xl font-bold text-white tracking-tight flex items-center gap-2"
+          className="text-xl font-bold text-primary tracking-tight flex items-center gap-2"
         >
             
               <img
@@ -45,7 +44,7 @@ export default function Navbar() {
               <span>Tooloria</span>
         </Link>
 
-        <ul className="hidden md:flex gap-6 text-white font-medium">
+        <ul className="hidden md:flex gap-6  font-medium">
           <>
             {navLinks.map((link) => (
               <li key={link.href} className="relative group">
@@ -71,7 +70,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <ul className="md:hidden px-4 py-10 pb-4 space-y-2 bg-bg backdrop-blur-lg text-white font-medium">
+        <ul className="md:hidden px-4 py-10 pb-4 space-y-2 bg-bg backdrop-blur-lg  font-medium">
           <>
           <ThemeToggle />
             {navLinks.map((link) => (
