@@ -8,6 +8,7 @@ const categories = [
   module.exports = {
     siteUrl: process.env.SITE_URL || 'https://tooloria.org',  // Replace with your site URL
     generateRobotsTxt: true,
+    generateIndexSitemap: false, 
     sitemapSize: 5000,
     // Dynamically generate sitemap entries for all category pages
     additionalPaths: async (config) => {
