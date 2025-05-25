@@ -1,10 +1,26 @@
 import dynamic from "next/dynamic";
-
-const ImageCompress = dynamic(() => import("@/components/tools/image-tools/image-compress/ImageCompress"));
+import { Suspense } from "react";
+import Loading from "@/components/Loading";
+const ImageCompress = dynamic(() => import("@/components/tools/image-tools/image-compress/ImageCompress"), { suspense: true });
 
 export const metadata = {
   title: "Image Compressor - Tooloria",
   description: "Compress images easily online with Tooloria's Image Compressor.",
+  openGraph: {
+    title: "Image Compressor - Tooloria",
+    description: "Compress images easily online with Tooloria's Image Compressor.",
+    url: "https://tooloria.org/image-compressor",
+    images: [
+      {
+        url: "/og-image-image-compressor.png", // your combined OG image with logo
+        width: 1200,
+        height: 630,
+        alt: "Tooloria Image Compressor",
+      },
+    ],
+    siteName: "Tooloria",
+    type: "website",
+  },
 };
 
 export default function Page() {
@@ -18,7 +34,9 @@ export default function Page() {
         the settings as needed and download the optimized image.
       </p>
       <div className="bg-bg/70 rounded-lg shadow-inner">
+      <Suspense fallback={<Loading />}>
         <ImageCompress />
+      </Suspense>
       </div>
     </main>
   );
