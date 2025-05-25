@@ -5,30 +5,39 @@ const ImageCompress = dynamic(() => import("@/components/tools/image-tools/image
 
 export const metadata = {
   metadataBase: new URL("https://tooloria.org"),
-  title: "Image Compressor - Tooloria",
-  description: "Compress images easily online with Tooloria's Image Compressor.",
+  title: "Image Compressor | Tooloria",
+  description: "Compress images quickly and easily online with Tooloria. Reduce file size without losing quality.",
+  keywords: [
+    "image compressor",
+    "compress image online",
+    "free image compression",
+    "reduce image file size",
+    "Tooloria image tools",
+    "online image optimizer"
+  ],
   openGraph: {
-    title: "Image Compressor - Tooloria",
-    description: "Compress images easily online with Tooloria's Image Compressor.",
-    url: "/image-compressor",
+    title: "Image Compressor | Tooloria",
+    description: "Compress images quickly and easily online with Tooloria. Reduce file size without losing quality.",
+    url: "https://tooloria.org/tooloriaLogo.png",
+    siteName: "Tooloria",
     images: [
       {
-        url: "/og-image-image-compressor.png",
+        url: "https://tooloria.org/tooloriaLogo.png", // 🔁 Use custom OG image, not logo
         width: 1200,
         height: 630,
         alt: "Tooloria Image Compressor",
       },
     ],
-    siteName: "Tooloria",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Image Compressor - Tooloria",
-    description: "Compress images easily online with Tooloria's Image Compressor.",
-    images: ["/og-image-image-compressor.png"],
+    title: "Image Compressor | Tooloria",
+    description: "Compress images quickly and easily online with Tooloria. Reduce file size without losing quality.",
+    images: ["https://tooloria.org/tooloriaLogo.png"],
   },
 };
+
 
 export default function Page() {
   return (
