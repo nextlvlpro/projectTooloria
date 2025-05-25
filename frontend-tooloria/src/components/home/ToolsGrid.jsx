@@ -30,6 +30,13 @@ const tools = [
       href: "/qr-code-generator",
       icon: <QrCodeIcon/>,
     },
+    {
+      id: 3,
+      name: "Image Compressor",
+      description: "Compress images easily",
+      href: "/image-compress",
+      icon: "📸",
+    },
     // add more tools...
   ];
   
