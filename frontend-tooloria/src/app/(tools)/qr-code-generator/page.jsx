@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 // ✅ Dynamically import the client-side QR code generator
 const QRCodeGenerator = dynamic(
   () => import("@/components/tools/qr-code-generator/QrCodeGeneretor"),
-  { loading: () => <div>Loading...</div>, ssr: false }
+  { loading: () => <div>Loading...</div> }
 );
 
 // ✅ SEO metadata via generateMetadata
