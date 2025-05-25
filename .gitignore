@@ -1,3 +1,7 @@
 node_modules
 .env
 .vscode
+sitemap-0.xml
+sitemap-1.xml
+sitemap.xml
+robots.txt
