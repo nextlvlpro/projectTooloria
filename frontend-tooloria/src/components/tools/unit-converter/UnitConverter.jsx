@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import convert from "convert-units";
 import { ArrowRightLeft } from "lucide-react";
 
@@ -160,10 +160,29 @@ function HistoryPanel({ history, clearHistory, className }) {
 
 // 6. AdsPanel
 function AdsPanel() {
+  const adRef = useRef(null);
+
+  useEffect(() => {
+    try {
+      if (window.adsbygoogle && adRef.current) {
+        window.adsbygoogle.push({});
+      }
+    } catch (e) {
+      console.error("Adsbygoogle error:", e);
+    }
+  }, []);
   return (
     <aside className="order-3 lg:order-1 lg:basis-1/5 bg-muted rounded-lg p-4 shadow-inner text-textMuted text-center">
       {/* <h2 className="font-semibold mb-2">Ads</h2> */}
-      {/* <p>Need help?</p> */}
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-9261479526965449"
+        data-ad-slot="6719168586"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+        ref={adRef}
+      ></ins>
     </aside>
   );
 }
