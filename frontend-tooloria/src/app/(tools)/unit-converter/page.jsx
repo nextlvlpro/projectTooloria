@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
 const UnitConverter = dynamic(
-  () => import("@/components/unit-converter/UnitConverter"),
+  () => import("@/components/tools/unit-converter/UnitConverter"),
   { suspense: true }
 );
 
