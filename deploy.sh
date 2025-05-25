@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Navigate to your project directory
+cd /home/ubuntu/github/projectTooloria/frontend-tooloria || exit
+
+# Pull latest changes from git
+git pull origin main
+
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
+
+# Restart the PM2 process
+pm2 restart tooloria-frontend
+
+# Show PM2 status
+pm2 status
