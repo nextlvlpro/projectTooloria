@@ -1,10 +1,10 @@
 // app/contact/page.tsx
 
-import { Linkedin, Mail, Github } from 'lucide-react';
+import { Linkedin, Mail, Github } from "lucide-react";
 
 export const metadata = {
-  title: 'Contact | Tooloria',
-  description: 'Connect with the Tooloria team via LinkedIn, GitHub, and more.',
+  title: "Contact | Tooloria",
+  description: "Connect with the Tooloria team via LinkedIn, GitHub, and more.",
 };
 
 export default function page() {
@@ -16,7 +16,7 @@ export default function page() {
         <li className="flex items-center gap-4">
           <Linkedin className="w-6 h-6 text-blue-600" />
           <a
-            href="https://linkedin.com/in/your-linkedin"
+            href="https://www.linkedin.com/in/bhs12899/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:underline"
@@ -28,7 +28,7 @@ export default function page() {
         <li className="flex items-center gap-4">
           <Github className="w-6 h-6" />
           <a
-            href="https://github.com/your-github"
+            href="https://github.com/nextlvlpro"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:underline"
@@ -39,8 +39,8 @@ export default function page() {
 
         <li className="flex items-center gap-4">
           <Mail className="w-6 h-6 text-red-500" />
-          <a href="mailto:your@email.com" className="hover:underline">
-            your@email.com
+          <a href="mailto:bhanusharma089@gmail.com" className="hover:underline">
+            bhanusharma089@gmail.com
           </a>
         </li>
       </ul>

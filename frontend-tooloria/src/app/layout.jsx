@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
+import CookieConsent from "@/components/coockie-consent/CookieConsent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,9 +25,10 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/tooloriaLogo.png" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col h-screen justify-between`}
       >
         <Navbar />
+        <CookieConsent />
         {children}
       </body>
     </html>

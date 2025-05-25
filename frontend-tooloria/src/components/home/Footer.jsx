@@ -13,10 +13,13 @@ export default function Footer() {
           <Link href="/" className="hover:text-textAccent transition-colors">Home</Link>
           <Link href="/about" className="hover:text-textAccent transition-colors">About</Link>
           <Link href="/contact" className="hover:text-textAccent transition-colors">Contact</Link>
+          <Link href="/privacy" className="hover:text-textAccent transition-colors">Privacy</Link>
+          <Link href="/terms" className="hover:text-textAccent transition-colors">Terms of Service</Link>
+          <Link href="/cookie-policy" className="hover:text-textAccent transition-colors">Cookie Policy</Link>
         </nav>
 
         <div className="flex gap-6">
-          {[ 
+          {[
             { href: "https://github.com/yourprofile", Icon: Github },
             { href: "https://twitter.com/yourprofile", Icon: Twitter },
             { href: "https://linkedin.com/in/yourprofile", Icon: Linkedin }
@@ -29,8 +32,8 @@ export default function Footer() {
               className="text-textMain hover:text-textAccent transition-colors"
               aria-label={`Visit our ${href.split("//")[1].split("/")[0]}`}
             >
-              <Icon 
-                size={24} 
+              <Icon
+                size={24}
                 className="hover:scale-110 transition-transform duration-300"
               />
             </Link>
