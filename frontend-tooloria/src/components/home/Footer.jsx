@@ -11,7 +11,6 @@ export default function Footer() {
 
         <nav className="flex gap-6 text-sm font-medium">
           <Link href="/" className="hover:text-textAccent transition-colors">Home</Link>
-          <Link href="/tools" className="hover:text-textAccent transition-colors">Tools</Link>
           <Link href="/about" className="hover:text-textAccent transition-colors">About</Link>
           <Link href="/contact" className="hover:text-textAccent transition-colors">Contact</Link>
         </nav>

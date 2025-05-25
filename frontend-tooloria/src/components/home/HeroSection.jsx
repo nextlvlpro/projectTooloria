@@ -36,9 +36,6 @@ export default function HeroSection() {
         Convert, format, count, and more — all in one place. Tooloria helps you
         get things done fast.
       </p>
-      <Link href="/tools" className="accent mt-6 underline underline-offset-4">
-        Explore Tools
-      </Link>
     </section>
   );
 }
