@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Twitter, Linkedin } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -9,7 +9,7 @@ export default function Footer() {
           Tooloria &copy; {new Date().getFullYear()}
         </div>
 
-        <nav className="flex gap-6 text-sm font-medium">
+        <nav className="flex gap-6 text-sm font-medium">  
           <Link href="/" className="hover:text-textAccent transition-colors">Home</Link>
           <Link href="/about" className="hover:text-textAccent transition-colors">About</Link>
           <Link href="/contact" className="hover:text-textAccent transition-colors">Contact</Link>
@@ -20,9 +20,9 @@ export default function Footer() {
 
         <div className="flex gap-6">
           {[
-            { href: "https://github.com/yourprofile", Icon: Github },
-            { href: "https://twitter.com/yourprofile", Icon: Twitter },
-            { href: "https://linkedin.com/in/yourprofile", Icon: Linkedin }
+            { href: "https://github.com/nextlvlpro", Icon: Github },
+            { href: "https://www.linkedin.com/in/bhs12899/", Icon: Linkedin },
+            { href: "https://mail.google.com/mail/?view=cm&fs=1&to=bhanusharma089@gmail.com", Icon: Mail }
           ].map(({ href, Icon }) => (
             <Link
               key={href}
