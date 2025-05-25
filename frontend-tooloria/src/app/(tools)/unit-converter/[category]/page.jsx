@@ -7,19 +7,28 @@ const UnitConverter = dynamic(
   { suspense: true }
 );
 
+export async function generateStaticParams() {
+  const categories = [
+    'length', 'area', 'mass', 'volume', 'each', 'temperature', 'time',
+    'digital', 'partsPer', 'speed', 'pace', 'pressure', 'current',
+    'voltage', 'power', 'reactivePower', 'apparentPower', 'energy',
+    'reactiveEnergy', 'volumeFlowRate', 'illuminance', 'frequency', 'angle'
+  ];
+  return categories.map(category => ({ category }));
+}
+
 export async function generateMetadata({ params }) {
-  const resolvedParams = await params;
-  const category = resolvedParams.category || "unit converter";
+  const category = params.category || "unit converter";
 
   const title = `${category.charAt(0).toUpperCase() + category.slice(1)} Unit Converter – Tooloria`;
   const description = `${category} category using Tooloria's unit converter.`;
 
   const keywords = [
     "unit converter",
-    category + " conversion",
+    `${category} conversion`,
     "Tooloria",
     "unit converter tool online",
-  ].filter(Boolean);
+  ];
 
   return {
     title,
@@ -29,8 +38,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Page({ params }) {
-  const resolvedParams = await params;
-  const category = resolvedParams.category;
+  const category = params.category;
 
   return (
     <main className="mx-auto px-6">
@@ -42,7 +50,7 @@ export default async function Page({ params }) {
       </p>
 
       <Suspense fallback={<Loading />}>
-        <UnitConverter params={resolvedParams} />
+        <UnitConverter params={params} />
       </Suspense>
     </main>
   );

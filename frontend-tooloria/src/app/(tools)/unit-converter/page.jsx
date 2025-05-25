@@ -22,7 +22,7 @@ export const metadata = {
   ],
 };
 
-export default async function UnitConverterPage() {
+export default async function page() {
   return (
     <main className=" mx-auto px-6">
       <h1 className="text-4xl font-bold mb-6">Unit Converter</h1>
