@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import CookieConsent from "@/components/coockie-consent/CookieConsent";
 import AdSenseLoader from "@/components/ads/google/AdSenseLoader";
+import PlausibleAnalytics from "@/components/PlausibleAnalytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col h-screen justify-between`}
       >
+        <PlausibleAnalytics/>
        <AdSenseLoader />
         <Navbar />
         <CookieConsent />
