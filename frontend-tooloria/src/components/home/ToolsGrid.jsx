@@ -37,6 +37,13 @@ const tools = [
       href: "/image-compress",
       icon: "📸",
     },
+    {
+      id: 4,
+      name: "IP Checker",
+      description: "Check your IP address easily",
+      href: "/ip-checker",
+      icon: "🌐",
+    },
     // add more tools...
   ];
   
