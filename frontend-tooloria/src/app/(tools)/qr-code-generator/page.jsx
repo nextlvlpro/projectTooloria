@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 // ✅ Dynamically import the client-side QR code generator
 const QRCodeGenerator = dynamic(
@@ -57,6 +58,17 @@ export default function QRCodePage() {
         Enter a link, message, or any text to generate a QR code instantly.
       </p>
       <QRCodeGenerator />
+      <section className="text-center my-12">
+          <h3 className="text-2xl font-semibold mb-2">Want to compress images securely?</h3>
+          <p className="mb-4 max-w-xl mx-auto text-textSecondary">
+            Click the button below to compress your images. we do not store your images. everything is done on your browser.
+          </p>
+          <Link href="/image-compress">
+            <div className="inline-block px-6 py-3 bg-primary text-white rounded-lg shadow-lg hover:bg-primary/90 transition font-medium">
+              Go to Image Compressor Tool
+            </div>
+          </Link>
+        </section>
     </main>
   );
 }

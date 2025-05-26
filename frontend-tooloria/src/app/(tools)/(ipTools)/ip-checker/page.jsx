@@ -1,15 +1,16 @@
 // app/ip-checker/page.jsx
 
-import IPChecker from '@/components/ip-checker/IpChecker'
+import IPChecker from '@/components/ipTools/ip-checker/IpChecker'
+import Link from 'next/link'
 
 export const metadata = {
   title: 'Free IP Checker Online - Find My IP Address & Location | Tooloria',
   description:
-    'Use Tooloria\'s free IP address checker and lookup tool to find your IPv4 or IPv6 address, ISP, and geolocation instantly. Works worldwide including US, UK, India, Canada & Australia.',
+    "Use Tooloria's free IP address checker and lookup tool to find your IPv4 or IPv6 address, ISP, and geolocation instantly. Works worldwide including US, UK, India, Canada & Australia.",
   openGraph: {
     title: 'Free IP Checker Online - Tooloria',
     description:
-      'Instantly check your IP address, ISP info, and geolocation with Tooloria’s free IP lookup tool. Supports IPv4 and IPv6 worldwide.',
+      "Instantly check your IP address, ISP info, and geolocation with Tooloria’s free IP lookup tool. Supports IPv4 and IPv6 worldwide.",
     url: 'https://tooloria.org/ip-checker',
     siteName: 'Tooloria',
     images: [
@@ -27,12 +28,12 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Free IP Checker Online - Tooloria',
     description:
-      'Instantly check your IP address, ISP info, and geolocation with Tooloria’s free IP lookup tool.',
+      "Instantly check your IP address, ISP info, and geolocation with Tooloria’s free IP lookup tool.",
     images: ['https://tooloria.org/tooloriaLogo.png'],
   },
 }
 
-export default function IPCheckerPage() {
+export default async function page({ params }) {
   return (
     <>
       <script
@@ -57,21 +58,35 @@ export default function IPCheckerPage() {
           }),
         }}
       />
-      <main className="max-w-3xl mx-auto px-4 py-12">
-        <header className="text-center mb-10">
-          <h1 className="text-5xl font-extrabold mb-4 leading-tight">
-            Free IP Checker &amp; IP Lookup Tool — Find Your IP Address &amp; Location
+      <main className="max-w-4xl mx-auto px-6 py-16">
+        <header className="text-center mb-12">
+          <h1 className="text-4xl font-extrabold mb-4 leading-tight text-primary">
+            Free IP Checker &amp; IP Lookup Tool
           </h1>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+          <p className="text-lg text-textSecondary max-w-3xl mx-auto">
             Instantly check your IPv4 or IPv6 address, ISP info, and geolocation worldwide — including US, UK, India, Canada, and Australia.
           </p>
         </header>
 
         {/* IPChecker Component */}
-        <IPChecker />
+        <div className="mb-8">
+          <IPChecker />
+        </div>
+
+        <section className="text-center mb-12">
+          <h3 className="text-2xl font-semibold mb-2">Want to lookup any IP address?</h3>
+          <p className="mb-4 max-w-xl mx-auto text-textSecondary">
+            Use our free IP lookup tool to find any IP address location, ISP, timezone, and more.
+          </p>
+          <Link href="/ip-lookup">
+            <div className="inline-block px-6 py-3 bg-primary text-white rounded-lg shadow-lg hover:bg-primary/90 transition font-medium">
+              Go to IP Lookup Tool
+            </div>
+          </Link>
+        </section>
 
         {/* Optional SEO-rich content section */}
-        <section className="mt-16 prose prose-neutral max-w-none px-2">
+        <section className="prose prose-neutral max-w-none px-2 text-textSecondary">
           <h2>What is My IP Address?</h2>
           <p>
             Your IP address is a unique identifier assigned to your device on the internet. It can be IPv4 or IPv6, depending on your network. This IP address is used for geolocation, ISP identification, and network communication.

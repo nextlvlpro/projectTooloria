@@ -44,6 +44,13 @@ const tools = [
       href: "/ip-checker",
       icon: "🌐",
     },
+    {
+      id: 5,
+      name: "IP Lookup",
+      description: "Lookup any IP address easily",
+      href: "/ip-lookup",
+      icon: "🌐?",
+    },
     // add more tools...
   ];
   
