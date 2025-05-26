@@ -51,6 +51,13 @@ const tools = [
       href: "/ip-lookup",
       icon: "🌐?",
     },
+    {
+      id: 6,
+      name: "Game Dictionary",
+      description: "Lookup any game term easily",
+      href: "/game-dictionary",
+      icon: "🎮",
+    },
     // add more tools...
   ];
   
