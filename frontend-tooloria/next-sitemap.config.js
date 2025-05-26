@@ -23,40 +23,121 @@ const categories = [
   "frequency",
   "angle",
 ];
+const gamerDictionary = [
+  "AAA",
+  "AFK",
+  "Aggro",
+  "Aimbot",
+  "AoE (Area of Effect)",
+  "Battle Royale",
+  "Buff/Debuff",
+  "Camping",
+  "DPS (Damage Per Second)",
+  "GG (Good Game)",
+  "Grinding",
+  "Nerf",
+  "PvP/PvE",
+  "RNG (Random Number Generator)",
+  "Tanking",
+  "Indie Games",
+  "Publisher",
+  "Triple-A",
+  "BRB",
+  "Logout",
+  "Inactivity",
+  "Threat",
+  "Enemy AI",
+  "Cheating",
+  "Hacks",
+  "Anti-Cheat",
+  "Splash Damage",
+  "Crowd Control",
+  "Healing Circle",
+  "PvP",
+  "Survival",
+  "Loot",
+  "Status Effect",
+  "Balancing",
+  "Tactical Positioning",
+  "Ambush",
+  "Spawn Kill",
+  "Burst Damage",
+  "Healer",
+  "Farming",
+  "XP",
+  "Co-op",
+  "Raid",
+  "MMO",
+  "Loot Tables",
+  "Procedural Generation",
+  "Luck",
+  "Tank",
+  "WP (Well Played)",
+  "Sportsmanship",
+  "FTW (For the Win)",
+  "Meta",
+  "DPS",
+  "Crowdfunding",
+  "Developer",
+  "Be Right Back",
+  "Exit Game",
+  "Threat Meter",
+  "Bot",
+  "Fair Play",
+  "Blast Radius",
+  "Disable",
+  "Heal Over Time",
+  "PvE",
+  "Duel",
+  "Horde Mode",
+  "Gear",
+  "Drop Rate",
+  "Cover",
+  "Stealth",
+  "Kill Zone",
+  "Respawn Protection",
+  "Cooldown",
+  "Skill Combo",
+  "Support",
+  "Resource Management",
+  "Level Cap",
+  "Dungeon",
+  "Boss Fight",
+  "Guild",
+  "Replayability",
+  "Stat Allocation",
+  "Chance",
+];
 
 module.exports = {
-  siteUrl: process.env.SITE_URL || "https://tooloria.org",
+  siteUrl: process.env.SITE_URL || "https://tooloria.org", // Replace with your site URL
   generateRobotsTxt: true,
-  trailingSlash: false,
-  changefreq: 'weekly',
-  sitemapSize: 5000,
   generateIndexSitemap: false,
-
+  sitemapSize: 5000,
+  changefreq: "weekly",
+  // Dynamically generate sitemap entries for all category pages
   additionalPaths: async (config) => {
     const now = new Date().toISOString();
 
-    /* 0. segment roots */
-    const roots = [
-      { loc: `${config.siteUrl}/`,                 lastmod: now, priority: 1.0 },
-      { loc: `${config.siteUrl}/unit-converter`,   lastmod: now, priority: 0.8 },
-    ];
-
-    /* 1. /unit-converter/<category> */
-    const converterPages = categories.map((cat) => ({
-      loc: `${config.siteUrl}/unit-converter/${cat}`,
+    // 1. Unit converter category pages
+    const converterPaths = categories.map((category) => ({
+      loc: `${config.siteUrl}/unit-converter/${category}`,
       lastmod: now,
       changefreq: 'weekly',
       priority: 0.7,
     }));
 
-    return [...roots, ...converterPages];
-  },
+    // 2. Gamer dictionary term pages
+    const dictionaryPaths = gamerDictionary.map(( term ) => {
+      const slug = encodeURIComponent(term.toLowerCase());
+      return {
+        loc: `${config.siteUrl}/game-dictionary/${slug}`,
+        lastmod: now,
+        changefreq: 'monthly',
+        priority: 0.6,
+      };
+    });
 
-  /* default transform so any other static path is still listed */
-  transform: async (config, url) => ({
-    loc: url,
-    changefreq: 'monthly',
-    priority: 0.5,
-    lastmod: new Date().toISOString(),
-  }),
+    return [...converterPaths, ...dictionaryPaths];
+  },
 };
