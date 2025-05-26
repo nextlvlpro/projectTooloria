@@ -24,8 +24,18 @@ export const metadata = {
     "online tools",
     "unit converter",
     "qr code generator",
-    "text tools",
-    "number tools",
+    "Instant online converters",
+    "Online QR code generator",
+    "IP address checker",
+    "Game term dictionary",
+    "Free unit converter without signup",
+    "Generate QR codes instantly online",
+    "Compress images without losing quality",
+    "Look up any IP address details",
+    "Find gaming slang definitions online",
+    "Privacy-focused online tools",
+    "No-tracking web utilities",
+    "Fast online converters",
     "free utilities",
     "Tooloria",
   ],
@@ -62,7 +72,6 @@ export default function RootLayout({ children }) {
       <head>
         {/* Favicon and viewport are not managed by metadata, so keep these */}
         <link rel="icon" href="/tooloriaLogo.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* Canonical is handled via metadata.alternates.canonical, so you can remove manual */}
       </head>
