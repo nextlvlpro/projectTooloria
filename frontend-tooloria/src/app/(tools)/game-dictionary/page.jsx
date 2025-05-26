@@ -7,12 +7,14 @@ export const metadata = {
   description:
     "Explore gaming terms and slang in our gamer dictionary. Understand phrases like AFK, nerf, buff, AoE, DPS, Aggro and more with clear definitions and examples.",
   keywords: [
-    "Gamer dictionary",
-    "Gaming terms",
+    "gaming term list",
+    "gamer dictionary",
+    "gaming terms",
+    "gaming term slang",
     "AFK meaning",
     "AAA games",
     "FPS gaming terms",
-    "Tooloria gamer glossary",
+    "gamer glossary",
     "nerf",
     "buff",
     "aoe",

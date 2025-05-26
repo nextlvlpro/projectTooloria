@@ -22,7 +22,8 @@ export async function generateStaticParams() {
 
 // SEO metadata
 export async function generateMetadata({ params }) {
-  const decodedTerm = decodeURIComponent(params.term).toLowerCase();
+    let resolvedParams = await params;
+  const decodedTerm = decodeURIComponent(resolvedParams.term).toLowerCase();
   const termData = gamerDictionary.find(
     (item) => item.term.toLowerCase() === decodedTerm
   );
@@ -43,6 +44,14 @@ export async function generateMetadata({ params }) {
       "Gaming terms",
       termData.term,
       ...(termData.related || []),
+      `what is ${termData.term} in gaming`,
+      `gaming term for ${termData.term}`,
+      `what does ${termData.term} mean in gaming`,
+      `what is ${termData.term} in gaming slang`,
+      `what does ${termData.term} mean in gaming slang`,
+      `gaming slang ${termData.term}`,
+      `gaming slang meaning ${termData.term}`,
+      `gaming slang definition ${termData.term}`,
     ],
     alternates: {
       canonical: `https://tooloria.org/game-dictionary/${encodeURIComponent(termData.term.toLowerCase())}`,
@@ -64,17 +73,18 @@ export async function generateMetadata({ params }) {
 }
 
 // Render page
-export default function Page({ params }) {
-  const decodedTerm = decodeURIComponent(params.term).toLowerCase();
-  const termData = gamerDictionary.find(
-    (item) => item.term.toLowerCase() === decodedTerm
-  );
+export default async function Page({ params }) {
+    let resolvedParams = await params;
+    const decodedTerm = decodeURIComponent(resolvedParams.term).toLowerCase();
+    const termData = gamerDictionary.find(
+        (item) => item.term.toLowerCase() === decodedTerm
+    );
 
-  if (!termData) {
-    notFound(); // Proper 404 handling
-  }
+    if (!termData) {
+        notFound(); // Proper 404 handling
+    }
 
-  const jsonLd = {
+    const jsonLd = {
     "@context": "https://schema.org",
     "@type": "DefinedTerm",
     name: termData.term,
@@ -88,9 +98,9 @@ export default function Page({ params }) {
         url: `https://tooloria.org/game-dictionary/${encodeURIComponent(rel.toLowerCase())}`,
       })),
     }),
-  };
+    };
 
-  return (
+    return (
     <main className="max-w-3xl mx-auto p-6">
       <SearchableGamerDictionary terms={gamerDictionary} />
 
@@ -137,5 +147,5 @@ export default function Page({ params }) {
         </section>
       )}
     </main>
-  );
+    );
 }

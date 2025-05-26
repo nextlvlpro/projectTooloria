@@ -1,3 +1,5 @@
+// app/page.jsx
+
 import HeroSection from "@/components/home/HeroSection";
 import Script from "next/script";
 import dynamic from "next/dynamic";
@@ -22,15 +24,18 @@ export const metadata = {
     "formatting tools",
     "free utilities",
   ],
+  alternates: {
+    canonical: "https://tooloria.org/",
+  },
   openGraph: {
     title: "Tooloria — Your All-in-One Online Toolbox",
     description:
       "Explore Tooloria's free online tools to convert, format, and calculate easily. All in one place.",
-    url: "https://tooloria.org",
+    url: "https://tooloria.org/",
     siteName: "Tooloria",
     images: [
       {
-        url: "https://tooloria.org/tooloriaLogo.png", // ⚠️ Make sure this image exists
+        url: "https://tooloria.org/tooloriaLogo.png",
         width: 1200,
         height: 630,
         alt: "Tooloria Home",
@@ -50,18 +55,30 @@ export const metadata = {
 export default function Page() {
   return (
     <>
-      {/* ✅ Schema.org JSON-LD for enhanced SEO */}
+      {/* ✅ JSON-LD structured data for a WebPage */}
       <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "WebSite",
+            "@type": "WebPage",
             name: "Tooloria",
-            url: "https://tooloria.org",
+            url: "https://tooloria.org/",
             description:
               "Your All-in-One Online Toolbox to convert, format, count, and more.",
-            sameAs: ["https://www.linkedin.com/in/bhs12899/", "https://github.com/nextlvlpro"], // Add your social profiles
+            publisher: {
+              "@type": "Organization",
+              name: "Tooloria",
+              url: "https://tooloria.org/",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://tooloria.org/tooloriaLogo.png",
+              },
+            },
+            sameAs: [
+              "https://www.linkedin.com/in/bhs12899/",
+              "https://github.com/nextlvlpro",
+            ],
           }),
         }}
       />
