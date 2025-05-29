@@ -2,62 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-in {
-    animation: fade-in 0.8s ease-out both;
-  }
-
-  @keyframes tilt-glow {
-    0% {
-      box-shadow: 0 0 0px hsla(var(--color-accent), 0);
-    }
-    50% {
-      box-shadow: 0 0 25px hsla(var(--color-accent), 0.6);
-    }
-    100% {
-      box-shadow: 0 0 0px hsla(var(--color-accent), 0);
-    }
-  }
-
-  .hover\\:shadow-glow:hover {
-    box-shadow: 0 0 15px hsla(var(--color-accent), 0.5);
-  }
-
-  .group-hover\\:animate-tilt-glow {
-    animation: tilt-glow 1.2s ease-in-out infinite;
-  }
-}
-
+/* -------------------------------------------------
+   1. Root tokens  (light first, then .dark overrides)
+--------------------------------------------------*/
 :root {
-  --color-bg: 210 20% 98%;         /* Light gray */
-  --color-fg: 222 47% 11%;         /* Text */
-  --color-primary: 265 76% 36%;    /* Purple */
+  --color-bg: 210 20% 98%;
+  --color-fg: 222 47% 11%;
+  --color-primary: 265 76% 36%;
   --color-accent: 276 100% 87%;
   --color-muted: 220 14% 96%;
-  --color-text-main: 222 47% 11%;      /* default foreground */
-  --color-text-muted: 222 10% 45%;     /* gray for descriptions */
-  --color-text-accent: 265 76% 36%;    /* highlight/interactive text */
-  --gradient-colors: #7e22ce, #3b82f6, #7e22ce; /* Purple & Blue for light mode */
+  --color-text-main: 222 47% 11%;
+  --color-text-muted: 222 10% 45%;
+  --color-text-accent: 265 76% 36%;
+  --gradient-colors: #7e22ce, #3b82f6, #7e22ce;
 }
 
-/* Dark Theme */
 .dark {
-  --color-bg: 222 47% 11%;         /* Almost black */
+  --color-bg: 222 47% 11%;
   --color-fg: 210 20% 98%;
   --color-primary: 265 83% 70%;
   --color-accent: 276 100% 85%;
@@ -68,67 +29,59 @@ body {
   --gradient-colors: #6b21a8, #7c3aed, #1e3a8a, #db2777;
 }
 
-html {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+/* optional: let the UA know you support both themes */
+html { color-scheme: light dark; }
 
-
-/* Global Typography Utilities */
-
-/* Headings */
-.heading-xl {
-  @apply text-4xl font-bold leading-tight;
-}
-
-.heading-lg {
-  @apply text-3xl font-semibold;
-}
-
-.heading-md {
-  @apply text-2xl font-semibold;
-}
-
-.heading-sm {
-  @apply text-xl font-medium;
-}
-
-/* Paragraphs and Subtext */
-.lead {
-  @apply text-lg;
-}
-
-.body {
-  @apply text-base;
-}
-
-.caption {
-  @apply text-sm;
-}
-
-/* Accent Text */
-.accent {
-  @apply font-medium;
-}
-
+/* -------------------------------------------------
+   2. Base typography & transition
+--------------------------------------------------*/
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: hsl(var(--color-bg));
-  color: hsl(var(--color-text-main));
-  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Geist is injected by <html class="… --font-geist-sans"> */
+  font-family: var(--font-geist-sans, Arial, Helvetica, sans-serif);
+  @apply bg-bg text-textMain transition-colors duration-300 ease-linear;
 }
 
-@keyframes gradient-move {
-  0%, 100% {
-    background-position: 0% 50%;
+/* -------------------------------------------------
+   3. Utility layer: animations & custom classes
+--------------------------------------------------*/
+@layer utilities {
+  /* fade-in */
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
-  50% {
-    background-position: 100% 50%;
+  .animate-fade-in { animation: fade-in 0.8s ease-out both; }
+
+  /* glow on hover */
+  @keyframes tilt-glow {
+    0%,100% { box-shadow: 0 0 0 hsla(var(--color-accent),0); }
+    50%     { box-shadow: 0 0 25px hsla(var(--color-accent),.6); }
+  }
+  .hover\\:shadow-glow:hover { box-shadow: 0 0 15px hsla(var(--color-accent),.5); }
+  .group-hover\\:animate-tilt-glow { animation: tilt-glow 1.2s ease-in-out infinite; }
+
+  /* animated gradient background */
+  @keyframes gradient-move {
+    0%,100% { background-position: 0% 50%; }
+    50%     { background-position: 100% 50%; }
+  }
+  .bg-animated-gradient {
+    background: linear-gradient(270deg, var(--gradient-colors));
+    background-size: 200% 200%;
+    animation: gradient-move 6s ease infinite;
   }
 }
 
-.bg-animated-gradient {
-  background: linear-gradient(270deg, var(--gradient-colors));
-  background-size: 200% 200%;
-  animation: gradient-move 6s ease infinite;
-}
+/* -------------------------------------------------
+   4. Reusable typographic scales
+--------------------------------------------------*/
+.heading-xl { @apply text-4xl font-bold leading-tight; }
+.heading-lg { @apply text-3xl font-semibold; }
+.heading-md { @apply text-2xl font-semibold; }
+.heading-sm { @apply text-xl font-medium; }
 
+.lead   { @apply text-lg; }
+.body   { @apply text-base; }
+.caption{ @apply text-sm; }
+
+.accent { @apply font-medium text-textAccent; }

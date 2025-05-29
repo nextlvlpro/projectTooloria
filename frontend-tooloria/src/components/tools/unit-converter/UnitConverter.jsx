@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import convert from "convert-units";
 import { ArrowRightLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const decimalPoints = [0, 1, 2, 3, 4, 5];
 
@@ -163,20 +164,29 @@ function AdsPanel() {
   const adRef = useRef(null);
 
   useEffect(() => {
-    try {
-      if (window.adsbygoogle && adRef.current) {
-        window.adsbygoogle.push({});
+    // Only push if:
+    // 1) in the browser
+    // 2) adsbygoogle is defined
+    // 3) our <ins> hasn’t yet been marked as “done”
+    if (
+      typeof window !== 'undefined' &&
+      window.adsbygoogle &&
+      adRef.current &&
+      adRef.current.getAttribute('data-adsbygoogle-status') !== 'done'
+    ) {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        console.error('Adsbygoogle error:', e);
       }
-    } catch (e) {
-      console.error("Adsbygoogle error:", e);
     }
-  }, []);
+  }, []); // run once
+
   return (
     <aside className="order-3 lg:order-1 lg:basis-1/5 bg-muted rounded-lg p-4 shadow-inner text-textMuted text-center">
-      {/* <h2 className="font-semibold mb-2">Ads</h2> */}
       <ins
         className="adsbygoogle"
-        style={{ display: "block" }}
+        style={{ display: 'block' }}
         data-ad-client="ca-pub-9261479526965449"
         data-ad-slot="6719168586"
         data-ad-format="auto"
@@ -233,16 +243,19 @@ export default function UnitConverter({ params }) {
   const [result, setResult] = useState("");
   const [precision, setPrecision] = useState(2);
   const [history, setHistory] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
+    setSelectedCategory(params?.category || "length");
     try {
-      setSelectedCategory(params?.category || "length");
-      const measures = convert().measures();
-      setCategories(measures);
-    } catch {
-      setCategories([]);
-    }
+      setCategories(convert().measures());
+    } catch { setCategories([]); }
   }, [params]);
+
+  function handleCategoryChange(nextCat) {
+    setSelectedCategory(nextCat);
+    router.push(`/unit-converter/${nextCat}`, { scroll: false });
+  }
 
   useEffect(() => {
     try {
@@ -317,7 +330,7 @@ export default function UnitConverter({ params }) {
         <CategorySelector
           categories={categories}
           selectedCategory={selectedCategory}
-          onChange={setSelectedCategory}
+          onChange={handleCategoryChange}
         />
         <UnitSelector
           subUnits={subUnits}

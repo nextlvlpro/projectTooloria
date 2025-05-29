@@ -55,39 +55,88 @@ export const metadata = {
 export default function Page() {
   return (
     <>
-      {/* ✅ JSON-LD structured data for a WebPage */}
+     <main>
+        <HeroSection />
+        <ToolsGrid />
+
+        {/* ─── 1. ABOUT SECTION ─────────────────────────── */}
+        <section id="about" className="max-w-3xl mx-auto my-16 space-y-4">
+          <h2 className="heading-lg">About Tooloria</h2>
+          <p className="body text-textMuted">
+            Tooloria is your all-in-one, free online toolbox: from unit converters (length, weight, volume, temperature, time, digital storage, and more) to QR code generators, image compressors, IP lookups, and beyond. No signup. No tracking. Just instant, privacy-focused utilities built for speed and simplicity.
+          </p>
+        </section>
+
+        {/* ─── 2. FAQ SECTION ────────────────────────────── */}
+        <section id="faq" className="max-w-3xl mx-auto my-16">
+          <h2 className="heading-lg mb-6">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            <details className="border rounded p-4">
+              <summary className="font-medium cursor-pointer">Do I need an account to use these tools?</summary>
+              <p className="mt-2 body">
+                No—all tools on Tooloria are completely free and require no registration or login.
+              </p>
+            </details>
+
+            <details className="border rounded p-4">
+              <summary className="font-medium cursor-pointer">How many tools are available?</summary>
+              <p className="mt-2 body">
+                We currently offer 20+ tools, including converters for length, mass, volume, time, and more—each built to be fast and accurate.
+              </p>
+            </details>
+
+            <details className="border rounded p-4">
+              <summary className="font-medium cursor-pointer">Is my data tracked or stored?</summary>
+              <p className="mt-2 body">
+                Absolutely not. Tooloria does not collect or store any personal data—everything runs client-side or via stateless server APIs.
+              </p>
+            </details>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+
+      {/* ─── 3. FAQPage JSON-LD ───────────────────────── */}
       <Script
+        id="faqSchema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "WebPage",
-            name: "Tooloria",
-            url: "https://tooloria.org/",
-            description:
-              "Your All-in-One Online Toolbox to convert, format, count, and more.",
-            publisher: {
-              "@type": "Organization",
-              name: "Tooloria",
-              url: "https://tooloria.org/",
-              logo: {
-                "@type": "ImageObject",
-                url: "https://tooloria.org/tooloriaLogo.png",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Do I need an account to use these tools?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "No—all tools on Tooloria are completely free and require no registration or login.",
+                },
               },
-            },
-            sameAs: [
-              "https://www.linkedin.com/in/bhs12899/",
-              "https://github.com/nextlvlpro",
+              {
+                "@type": "Question",
+                name: "How many tools are available?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "We currently offer 20+ tools, including converters for length, mass, volume, time, and more—each built to be fast and accurate.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Is my data tracked or stored?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "Absolutely not. Tooloria does not collect or store any personal data—everything runs client-side or via stateless server APIs.",
+                },
+              },
             ],
           }),
         }}
       />
-
-      <main>
-        <HeroSection />
-        <ToolsGrid />
-      </main>
-      <Footer />
     </>
   );
 }
