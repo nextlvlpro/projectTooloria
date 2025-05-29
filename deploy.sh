@@ -4,7 +4,7 @@
 cd /home/ubuntu/github/projectTooloria/frontend-tooloria || exit
 
 # Pull latest changes from git
-git pull origin main
+git pull 
 
 # Install dependencies
 npm install
