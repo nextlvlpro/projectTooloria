@@ -141,13 +141,13 @@
            </div>
    
            {/* about (≈ 200 words) */}
-           <section className="prose prose-neutral max-w-none text-textSecondary">
-             <h2>How IP Geolocation Works<span className="sr-only"> — About</span></h2>
+           <section className="prose prose-neutral max-w-none text-textMain">
+             <h2 className="text-textMain">How IP Geolocation Works<span className="sr-only"> — About</span></h2>
              <p>
                When your device connects to the internet, your Internet Service
                Provider assigns it a block of numbers registered with a Regional
                Internet Registry (RIR).  Public datasets from organisations like&nbsp;
-               <a href="https://www.apnic.net" target="_blank" rel="noopener">APNIC</a>
+               <a className='text-textAccent' href="https://www.apnic.net" target="_blank" rel="noopener">APNIC</a>
                &nbsp;map those blocks to countries, and—if the ISP volunteers more
                detail—to cities or regions.  Our checker queries that dataset
                client-side, so the raw IP never touches Tooloria’s servers.  Because
