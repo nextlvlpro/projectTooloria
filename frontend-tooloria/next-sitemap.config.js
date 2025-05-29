@@ -110,34 +110,47 @@ const gamerDictionary = [
 ];
 
 module.exports = {
-  siteUrl: process.env.SITE_URL || "https://tooloria.org", // Replace with your site URL
+  siteUrl: process.env.SITE_URL || "https://tooloria.org",
   generateRobotsTxt: true,
-  generateIndexSitemap: false,
+  trailingSlash: false,
+  changefreq: 'weekly',
   sitemapSize: 5000,
-  changefreq: "weekly",
-  // Dynamically generate sitemap entries for all category pages
+  generateIndexSitemap: false,
+
   additionalPaths: async (config) => {
     const now = new Date().toISOString();
 
-    // 1. Unit converter category pages
-    const converterPaths = categories.map((category) => ({
-      loc: `${config.siteUrl}/unit-converter/${category}`,
+    /* 0. segment roots */
+    const roots = [
+      { loc: `${config.siteUrl}/`,                 lastmod: now, priority: 1.0 },
+      { loc: `${config.siteUrl}/unit-converter`,   lastmod: now, priority: 0.8 },
+      { loc: `${config.siteUrl}/game-dictionary`,  lastmod: now, priority: 0.8 },
+    ];
+
+    /* 1. /unit-converter/<category> */
+    const converterPages = categories.map((cat) => ({
+      loc: `${config.siteUrl}/unit-converter/${cat}`,
       lastmod: now,
       changefreq: 'weekly',
       priority: 0.7,
     }));
 
-    // 2. Gamer dictionary term pages
-    const dictionaryPaths = gamerDictionary.map(( term ) => {
-      const slug = encodeURIComponent(term.toLowerCase());
-      return {
-        loc: `${config.siteUrl}/game-dictionary/${slug}`,
-        lastmod: now,
-        changefreq: 'monthly',
-        priority: 0.6,
-      };
-    });
+    /* 2. /game-dictionary/<term>  (lower-case + spaces→%20, brackets kept) */
+    const dictPages = gamerDictionary.map((term) => ({
+      loc: `${config.siteUrl}/game-dictionary/${encodeURI(term.toLowerCase())}`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: 0.6,
+    }));
 
-    return [...converterPaths, ...dictionaryPaths];
+    return [...roots, ...converterPages, ...dictPages];
   },
+
+  /* default transform so any other static path is still listed */
+  transform: async (config, url) => ({
+    loc: url,
+    changefreq: 'monthly',
+    priority: 0.5,
+    lastmod: new Date().toISOString(),
+  }),
 };
