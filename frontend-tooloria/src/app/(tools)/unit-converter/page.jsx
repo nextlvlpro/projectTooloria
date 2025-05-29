@@ -24,7 +24,7 @@ export default function UnitConverterIndexPage() {
     <>
       {/* ─── Breadcrumbs + WebPage LD if you have them above ─── */}
 
-      <main className="mx-auto px-6 space-y-12">
+      <main className="mx-auto px-6 space-y-12 mb-12">
         {/* ─── 1. Tool UI ─────────────────────────── */}
         <section>
           <h1 className="text-4xl font-bold mb-4">Unit Converter</h1>
@@ -129,7 +129,7 @@ export default function UnitConverterIndexPage() {
                 Can I convert multiple values at once?
               </summary>
               <p className="mt-2 body">
-                At the moment you can convert one value at a time. We’re planning a
+                At the moment you can convert one value at a time. We're planning a
                 “batch convert” feature soon—stay tuned!
               </p>
             </details>
