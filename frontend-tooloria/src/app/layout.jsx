@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
       <head>
 
         {/* Pre-connect so Google Fonts starts downloading sooner */}
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
         {/* Favicon */}
         <link rel="icon" href="/tooloriaLogo.png" />
