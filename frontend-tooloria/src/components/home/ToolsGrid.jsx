@@ -9,20 +9,6 @@ const tools = [
       href: "/unit-converter",
       icon: "🔄",
     },
-    // {
-    //   id: 2,
-    //   name: "Text Formatter",
-    //   description: "Format and beautify your text",
-    //   href: "/text-formatter",
-    //   icon: "✍️",
-    // },
-    // {
-    //   id: 3,
-    //   name: "Character Counter",
-    //   description: "Count characters and words",
-    //   href: "/counter",
-    //   icon: "🔢",
-    // },
     {
       id: 2,
       name: "QR Code Generator",
@@ -58,6 +44,7 @@ const tools = [
       href: "/game-dictionary",
       icon: "🎮",
     },
+    
     // add more tools...
   ];
   

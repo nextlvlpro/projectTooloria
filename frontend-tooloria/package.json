@@ -10,17 +10,24 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@codemirror/autocomplete": "^6.18.6",
+    "@codemirror/closebrackets": "^0.19.2",
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/lint": "^6.8.5",
+    "@uiw/react-codemirror": "^4.23.12",
     "browser-image-compression": "^2.0.2",
     "convert-units": "^2.3.4",
     "framer-motion": "^12.12.2",
     "is-ip": "^5.0.1",
+    "jsonlint-mod": "^1.7.6",
     "lucide-react": "^0.511.0",
     "next": "^15.3.2",
     "next-seo": "^6.8.0",
     "next-sitemap": "^4.2.3",
     "qr-creator": "^1.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-json-tree": "^0.20.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
