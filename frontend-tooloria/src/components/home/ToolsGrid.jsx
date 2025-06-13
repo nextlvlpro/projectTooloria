@@ -44,6 +44,13 @@ const tools = [
       href: "/game-dictionary",
       icon: "🎮",
     },
+    {
+      id: 7,
+      name: "PDF Editor",
+      description: "Edit PDF files easily",
+      href: "/pdf-editor",
+      icon: "📄",
+    },
     
     // add more tools...
   ];
