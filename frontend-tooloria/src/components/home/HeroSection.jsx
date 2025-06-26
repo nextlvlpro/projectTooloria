@@ -30,7 +30,7 @@ export const metadata = {
 
 export default function HeroSection() {
   return (
-    <section className="w-full flex flex-col items-center justify-center p-10 pt-16 text-white animate-fade-in bg-animated-gradient">
+    <section className="w-full flex flex-col items-center justify-center p-10 pt-16 h-[50vh] text-white animate-fade-in bg-animated-gradient">
       <h1 className="heading-xl">Tooloria — Your All-in-One Online Toolbox</h1>
       <p className="lead mt-4 max-w-xl text-center">
         Convert, format, count, and more — all in one place. Tooloria helps you

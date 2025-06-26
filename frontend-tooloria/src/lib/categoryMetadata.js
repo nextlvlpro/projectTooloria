@@ -1009,5 +1009,5 @@ export const categoryContentData = {
         },
       ],
     },
-  };
+};
   

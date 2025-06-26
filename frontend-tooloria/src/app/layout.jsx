@@ -47,17 +47,17 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
         {/* Favicon */}
-        <link rel="icon" href="/tooloriaLogo.png" />
+        <link rel="icon" href="https://tooloria.org/tooloriaLogo.png" />
       </head>
 
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col h-screen justify-between`}
       >
         {/* --- global UI / analytics --- */}
-        <PlausibleAnalytics />
-        <AdSenseLoader />
+        {/* <PlausibleAnalytics /> */}
+        {/* <AdSenseLoader /> */}
         <Navbar />
-        <CookieConsent />
+        {/* <CookieConsent /> */}
 
         {/* --- page content --- */}
         {children}

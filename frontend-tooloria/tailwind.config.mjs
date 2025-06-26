@@ -6,7 +6,7 @@ export default {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
 
-  darkMode: 'class',           // ✅   explicit toggle
+  darkMode: 'class',
 
   theme: {
     extend: {

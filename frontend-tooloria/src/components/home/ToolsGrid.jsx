@@ -1,66 +1,135 @@
-import React from 'react'
-import ToolInfoCard from '../cards/ToolInfoCard';
-import QrCodeIcon from '../icons/QrCodeIcon';
-const tools = [
-    {
-      id: 1,
-      name: "Unit Converter",
-      description: "Convert between units easily",
-      href: "/unit-converter",
-      icon: "🔄",
-    },
-    {
-      id: 2,
-      name: "QR Code Generator",
-      description: "Generate QR codes easily",
-      href: "/qr-code-generator",
-      icon: <QrCodeIcon/>,
-    },
-    {
-      id: 3,
-      name: "Image Compressor",
-      description: "Compress images easily",
-      href: "/image-compress",
-      icon: "📸",
-    },
-    {
-      id: 4,
-      name: "IP Checker",
-      description: "Check your IP address easily",
-      href: "/ip-checker",
-      icon: "🌐",
-    },
-    {
-      id: 5,
-      name: "IP Lookup",
-      description: "Lookup any IP address easily",
-      href: "/ip-lookup",
-      icon: "🌐?",
-    },
-    {
-      id: 6,
-      name: "Game Dictionary",
-      description: "Lookup any game term easily",
-      href: "/game-dictionary",
-      icon: "🎮",
-    },
-    
-    // add more tools...
-  ];
-  
+import React from "react";
+import ToolInfoCard from "../cards/ToolInfoCard";
 
-export default function ToolsGrid() {
+const toolGroups = [
+  {
+    id: 1,
+    groupName: "Unit Converter",
+    tools: [
+      {
+        id: "vol",
+        title: "Volume Converter",
+        description: "Convert between different volume units",
+        href: "/unit-converter/volume",
+        icon: "🧴",
+      },
+      {
+        id: "length",
+        title: "Length Converter",
+        description: "Convert length units easily",
+        href: "/unit-converter/length",
+        icon: "📏",
+      },
+      {
+        id: "temp",
+        title: "Temperature Converter",
+        description: "Convert temperature units",
+        href: "/unit-converter/temperature",
+        icon: "🌡️",
+      },
+      {
+        id: "weight",
+        title: "Weight Converter",
+        description: "Convert weight units easily",
+        href: "/unit-converter/weight",
+        icon: "⚖️",
+      },
+      {
+        id: "alltools",
+        title: "All Tools",
+        description: "All tools",
+        href: "/unit-converter",
+        icon: "📐",
+      },
+      // ...more subtools
+    ],
+  },
+  {
+    id: 2,
+    groupName: "Dev Tools",
+    tools: [
+      {
+        id: "devTools",
+        title: "All Dev Tools",
+        description: "handy tools for developers",
+        href: "/dev-tools",
+        icon: "🛠️",
+      },
+      {
+        id: "base64-text-tools",
+        title: "Text to Base64 Encoder/Decoder",
+        description: "Encode and decode Base64 strings",
+        href: "/dev-tools/base64-text-encode",
+        icon: "💻",
+      },
+    ],
+  },
+  {
+    id: 3,
+    groupName: "Image & QR Tools",
+    tools: [
+      {
+        id: "qr",
+        title: "QR Code Generator",
+        description: "Generate QR codes easily",
+        href: "/qr-code-generator",
+        icon: "🔲",
+      },
+      {
+        id: "imgCompress",
+        title: "Image Compressor",
+        description: "Compress images quickly",
+        href: "/image-compress",
+        icon: "📸",
+      },
+    ],
+  },
+  {
+    id: 4,
+    groupName: "IP Tools",
+    tools: [
+      {
+        id: "ipCheck",
+        title: "IP Checker",
+        description: "Check your IP address",
+        href: "/ip-checker",
+        icon: "🌐",
+      },
+      {
+        id: "ipLookup",
+        title: "IP Lookup",
+        description: "Lookup IP addresses",
+        href: "/ip-lookup",
+        icon: "🔍",
+      },
+    ],
+  },
+];
+
+export default function ToolsGridGrouped() {
   return (
-    <section className="flex flex-wrap sm:flex-row md:flex-row flex-col gap-4 p-5">
-      {tools.map(({ id, name, description, href, icon }) => (
-        <ToolInfoCard
-          key={id}
-          title={name}
-          description={description}
-          href={href}
-          icon={icon}
-        />
+    <section className="space-y-16 p-16 rounded-xl shadow-lg max-w-7xl mx-auto">
+      {toolGroups.map(({ id, groupName, tools }) => (
+        <div key={id} className="group">
+          <h2 className="text-4xl font-extrabold mb-6 pb-2 border-b-4 border-purple-600">
+            <span className="text-transparent bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text">
+              {groupName}
+            </span>
+          </h2>
+          <div className="flex flex-wrap gap-8 justify-center sm:justify-start items-stretch">
+            {tools.map(({ id, title, description, href, icon }) => (
+              <ToolInfoCard
+                key={id}
+                title={title}
+                description={description}
+                href={href}
+                icon={icon}
+                className="flex-1 max-w-[260px]"
+              />
+            ))}
+          </div>
+        </div>
       ))}
     </section>
-  )
+  );
 }
