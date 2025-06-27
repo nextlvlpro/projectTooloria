@@ -48,6 +48,7 @@ export default function RootLayout({ children }) {
 
         {/* Favicon */}
         <link rel="icon" href="https://tooloria.org/tooloriaLogo.png" />
+        <meta name="yandex-verification" content="7f25b4c2fbd6c956" />
       </head>
 
       <body
