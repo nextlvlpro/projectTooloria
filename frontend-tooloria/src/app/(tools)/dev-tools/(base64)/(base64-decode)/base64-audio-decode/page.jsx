@@ -37,12 +37,12 @@ export default function Page() {
           <p className="text-textMuted text-lg">
             Use our{" "}
             <Link
-              href="/dev-tools/base64-text-encode"
+              href="/dev-tools/base64-text-decode"
               className="text-primary underline hover:animate-pulse transition"
             >
-              Base64 text encoder
+              Base64 text decoder
             </Link>{" "}
-            for text conversion.
+            for base64 to text conversion.
           </p>
         </div>
       </footer>
