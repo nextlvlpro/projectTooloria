@@ -18,6 +18,20 @@ export const devToolsData = {data:[
         "description": "Convert Base64 back to readable text.",
         "href": "/dev-tools/base64-text-decode",
         "icon": "📥"
+      },
+      {
+        "id": "audio-encode",
+        "title": "Base64 Audio Encoder",
+        "description": "Convert audio files to Base64 format.",
+        "href": "/dev-tools/base64-audio-encode",
+        "icon": "📤"
+      },  
+      {
+        "id": "audio-decode",
+        "title": "Base64 Audio Decoder",
+        "description": "Convert Base64 back to audio files.",
+        "href": "/dev-tools/base64-audio-decode",
+        "icon": "📥"
       }
     ]
   }

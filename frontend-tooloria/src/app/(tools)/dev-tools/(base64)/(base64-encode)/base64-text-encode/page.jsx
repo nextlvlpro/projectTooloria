@@ -1,4 +1,4 @@
-import Base64TextTool from "@/components/tools/dev-tools/base64/base64-text-tool/Base64TextTool";
+import Base64TextTool from "@/components/tools/dev-tools/base64/Base64TextTool";
 import Link from "next/link";
 import React from "react";
 

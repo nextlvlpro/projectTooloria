@@ -62,6 +62,13 @@ const toolGroups = [
         href: "/dev-tools/base64-text-encode",
         icon: "💻",
       },
+      {
+        id: "base64-audio-tools",
+        title: "Audio to Base64 Encoder/Decoder",
+        description: "Encode and decode Base64 strings",
+        href: "/dev-tools/base64-audio-encode",
+        icon: "🎵",
+      },
     ],
   },
   {
