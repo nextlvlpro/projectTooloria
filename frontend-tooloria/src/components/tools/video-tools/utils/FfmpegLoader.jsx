@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { FFmpeg } from '@ffmpeg/ffmpeg'
 import { fetchFile, toBlobURL } from '@ffmpeg/util'
 
-export default function FfmpegLoader({ file, setOutputUrl, outputOptions, startAction, setStartAction, startActionText }) {
+export default function FfmpegLoader({ file, setOutputUrl, outputOptions, startAction, setStartAction, startActionText, setFfmpegLoaded }) {
     const [loaded, setLoaded] = useState(false)
     const [converting, setConverting] = useState("")
     const ffmpegRef = useRef(new FFmpeg())
@@ -28,6 +28,7 @@ export default function FfmpegLoader({ file, setOutputUrl, outputOptions, startA
         })
 
         setLoaded(true)
+        setFfmpegLoaded(true)
     }
 
     async function handleStartAction () {
