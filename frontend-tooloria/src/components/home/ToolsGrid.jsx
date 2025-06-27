@@ -28,11 +28,11 @@ const toolGroups = [
         icon: "🌡️",
       },
       {
-        id: "weight",
-        title: "Weight Converter",
-        description: "Convert weight units easily",
-        href: "/unit-converter/weight",
-        icon: "⚖️",
+        id: "speed",
+        title: "Speed Converter",
+        description: "Convert speed units easily",
+        href: "/unit-converter/speed",
+        icon: "💨",
       },
       {
         id: "alltools",
@@ -93,6 +93,19 @@ const toolGroups = [
   },
   {
     id: 4,
+    groupName: "Video Tools",
+    tools: [
+      {
+        id: "videoToGif",
+        title: "Video to GIF Converter",
+        description: "Convert videos to GIFs easily",
+        href: "/video-tools/video-to-gif",
+        icon: "🎞️",
+      },
+    ],
+  },
+  {
+    id: 5,
     groupName: "IP Tools",
     tools: [
       {
