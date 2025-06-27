@@ -27,7 +27,7 @@
    
    /* ------- 2. metadata for <head> --------- */
    export async function generateMetadata({ params }) {
-     const { category } = await params;                           // ✅ await
+     const { category } = await params;                       
      const meta = categoryMetadata[category] || { description: '', keywords: [] };
      const name = category.charAt(0).toUpperCase() + category.slice(1);
      const url  = `${siteUrl}/unit-converter/${category}`;
@@ -55,7 +55,7 @@
    
    /* ------------- 3. actual page ------------ */
    export default async function CategoryPage({ params }) {
-     const { category } = await params;                           // ✅ await
+     const { category } = await params;                           
      const meta = categoryMetadata[category] || { description: '', keywords: [] };
      const long  = categoryContentData[category] || { aboutSectionText: '', faq: [] };
      const name  = category.charAt(0).toUpperCase() + category.slice(1);
