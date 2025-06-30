@@ -5,7 +5,6 @@ import React from 'react'
 
 export default function DevToolsGrid() {
     let data = devToolsData.data
-    console.log(data);
     
   return (
     <section className="space-y-16 p-16 rounded-xl shadow-lg max-w-7xl mx-auto">

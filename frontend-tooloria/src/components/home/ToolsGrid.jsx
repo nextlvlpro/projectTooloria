@@ -124,6 +124,19 @@ const toolGroups = [
       },
     ],
   },
+  {
+    id:6, 
+    groupName:"Misc Tools",
+    tools:[
+      {
+        id:"game-dictionary",
+        title:"Game Dictionary",
+        description:"Explore gaming terms and slang in our gamer dictionary.",
+        href:"/game-dictionary",
+        icon:"🎮"
+      }
+    ]
+  }
 ];
 
 export default function ToolsGridGrouped() {

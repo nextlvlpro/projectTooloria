@@ -5,6 +5,7 @@ import { gamerDictionary } from "../../../../lib/gameDictionaryData";
 import dynamic from "next/dynamic";
 import Loading from "@/components/Loading";
 import { notFound } from "next/navigation";
+import Tags from "@/components/tools/game-dictionary/Tags";
 
 const SearchableGamerDictionary = dynamic(
   () => import("@/components/tools/game-dictionary/SearchableGamerDictionary"),
@@ -41,8 +42,6 @@ export async function generateMetadata(props) {
     title: `${termData.term} | Gamer Dictionary | Tooloria`,
     description: termData.definition,
     keywords: [
-      "Gamer dictionary",
-      "Gaming terms",
       termData.term,
       ...(termData.related || []),
     ],
@@ -65,6 +64,14 @@ export async function generateMetadata(props) {
   };
 }
 
+function genrateTags(termData) {
+  let termTags = [];
+  termTags[0]= "what is the meaning of " + termData.term;
+  termTags[1] = "definition of " + termData.term;
+  termTags[2] = "what" + termData.term + "means in gaming";
+  termTags[3] = "gaming term " + termData.term;
+  return termTags;
+}
 // Render page
 export default async function Page(props) {
   const params = await props?.params;
@@ -102,7 +109,7 @@ export default async function Page(props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-
+      <Tags tags={genrateTags(termData)} />
       <h1 className="text-4xl font-extrabold mb-6 text-textMain">
         {termData.term}
       </h1>
