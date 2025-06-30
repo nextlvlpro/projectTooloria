@@ -114,7 +114,7 @@ module.exports = {
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   sitemapSize: 5000,
-  changefreq: "weekly",
+  changefreq: "daily",
   // Dynamically generate sitemap entries for all category pages
   additionalPaths: async (config) => {
     const now = new Date().toISOString();
@@ -123,7 +123,7 @@ module.exports = {
     const converterPaths = categories.map((category) => ({
       loc: `${config.siteUrl}/unit-converter/${category}`,
       lastmod: now,
-      changefreq: 'weekly',
+      changefreq: 'daily',
       priority: 0.7,
     }));
 
@@ -133,7 +133,7 @@ module.exports = {
       return {
         loc: `${config.siteUrl}/game-dictionary/${slug}`,
         lastmod: now,
-        changefreq: 'monthly',
+        changefreq: 'daily',
         priority: 0.6,
       };
     });
