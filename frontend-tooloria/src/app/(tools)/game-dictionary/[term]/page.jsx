@@ -21,8 +21,10 @@ export async function generateStaticParams() {
 }
 
 // SEO metadata
-export async function generateMetadata({ params }) {
-  const decodedTerm = decodeURIComponent(params.term).toLowerCase();
+export async function generateMetadata(props) {
+  const  params  = await props?.params; 
+  const paramTerm = await params?.term;
+  const decodedTerm = decodeURIComponent(paramTerm).toLowerCase();
   const termData = gamerDictionary.find(
     (item) => item.term.toLowerCase() === decodedTerm
   );
@@ -64,8 +66,10 @@ export async function generateMetadata({ params }) {
 }
 
 // Render page
-export default function Page({ params }) {
-  const decodedTerm = decodeURIComponent(params.term).toLowerCase();
+export default async function Page(props) {
+  const params = await props?.params;
+  let paramTerm = await params?.term;
+  const decodedTerm = decodeURIComponent(paramTerm).toLowerCase();
   const termData = gamerDictionary.find(
     (item) => item.term.toLowerCase() === decodedTerm
   );
