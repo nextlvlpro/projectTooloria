@@ -67,9 +67,10 @@ export async function generateMetadata(props) {
 function genrateTags(termData) {
   let termTags = [];
   termTags[0]= "what is the meaning of " + termData.term;
-  termTags[1] = "definition of " + termData.term;
-  termTags[2] = "what" + termData.term + "means in gaming";
+  termTags[1] = "definition of " + termData.term + " in gaming";
+  termTags[2] = "what " + termData.term + " means in gaming";
   termTags[3] = "gaming term " + termData.term;
+  termTags[4] = "gaming dictionary";
   return termTags;
 }
 // Render page
@@ -104,21 +105,21 @@ export default async function Page(props) {
   return (
     <main className="max-w-3xl mx-auto p-6">
       <SearchableGamerDictionary terms={gamerDictionary} />
-
+      <Tags tags={genrateTags(termData)} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Tags tags={genrateTags(termData)} />
-      <h1 className="text-4xl font-extrabold mb-6 text-textMain">
+      
+      <h2 className="text-4xl font-extrabold mb-6 text-textMain">
         {termData.term}
-      </h1>
+      </h2>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-2">Definition</h2>
         <p className="text-textMuted">{termData.definition}</p>
       </section>
-
+      
       {termData.examples?.length > 0 && (
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-2">Examples</h2>
@@ -147,6 +148,43 @@ export default async function Page(props) {
           </ul>
         </section>
       )}
+
+      <section className="my-12">
+        <h2 className="text-2xl font-semibold mb-2">Try our other tools</h2>
+        <div className="flex flex-wrap gap-4">
+        <Link
+            href="/"
+            className="text-primary hover:underline"
+          >
+            All Tools
+          </Link>
+          <Link
+            href="/unit-converter"
+            className="text-primary hover:underline"
+          >
+            Unit Converter
+          </Link>
+          <Link
+            href="/ip-checker"
+            className="text-primary hover:underline"
+          >
+            IP Checker
+          </Link>
+          <Link
+            href="/ip-lookup"
+            className="text-primary hover:underline"
+          >
+            IP Lookup
+          </Link>
+          <Link
+            href="/video-tools/video-to-gif"
+            className="text-primary hover:underline"
+          >
+            Video to Gif
+          </Link>
+        </div>        
+      </section>
+      
     </main>
   );
 }
