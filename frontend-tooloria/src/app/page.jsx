@@ -31,7 +31,6 @@ export default function page() {
         title="Tooloria - Free Online Tools"
         description="Tooloria offers free online tools for applicants and Common Service Center/Lok Mitra kendra users."
         url="https://tooloria.org"
-        
         faq={faq}
       />
 

@@ -12,3 +12,7 @@
   --color-subtle: 215 15% 50%;     /* Gray-500 */
   --color-border: 215 20% 85%;     /* Light gray */
 }
+
+html {
+  scroll-behavior: smooth;
+}

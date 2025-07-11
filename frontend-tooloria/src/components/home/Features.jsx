@@ -6,7 +6,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="px-6 py-12">
+    <section className="px-6">
       <div className="grid md:grid-cols-3 gap-6 text-center">
         {features.map((f, i) => (
           <div key={i} className="p-6 border rounded-xl bg-white shadow-sm">

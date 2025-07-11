@@ -17,6 +17,9 @@ export default {
         subtle: 'hsl(var(--color-subtle))',
         border: 'hsl(var(--color-border))',
       },
+      fontFamily: {
+        popi: ['var(--font-poppins)', 'sans-serif'],
+      },
 
     },
   },

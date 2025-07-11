@@ -1,34 +1,27 @@
-// components/home/Hero.jsx
+import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-purple-50 via-white to-blue-50 py-24 px-6">
+    <section className="relative overflow-hidden bg-gradient-to-b from-primary via-primary/50 to-transparent py-24 px-6">
+
+      {/* Bottom gradient overlay to blend with page background */}
+      <div className="absolute inset-x-0 bottom-0  bg-gradient-to-b from-transparent to-white pointer-events-none z-0" />
       <div className="max-w-4xl mx-auto text-center z-10 relative">
-        <h1 className="text-5xl sm:text-6xl font-extrabold text-gray-900 drop-shadow-md">
-          Tooloria: Your Daily Tool Hub
+        <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 drop-shadow-md">
+          <span className="text-red-700">Tooloria:</span>&nbsp;<span className="text-border">Your Daily Tool Hub</span>
         </h1>
-        <p className="mt-6 text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto">
-          Compress, convert, generate — all in one place. Fast, free, and built for CSC & developers alike.
+        <p className="mt-6 text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto italic font-popi">  
+          Compress, convert, generate — all in one place. Fast, free, secure and built for Applicants, Common Service Centers, Lok Mitra Kendra & developers alike.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <a
+          <Link
             href="#tools"
-            className="bg-purple-600 text-white px-6 py-3 rounded-full shadow hover:bg-purple-700 transition"
+            className="bg-purple-600 text-white text-xl font-mono px-6 py-3 rounded-full shadow hover:bg-purple-700 transition"
           >
             Explore Tools
-          </a>
-          <a
-            href="mailto:contact@tooloria.org"
-            className="border-2 border-purple-600 text-purple-600 px-6 py-3 rounded-full hover:bg-purple-50 transition"
-          >
-            Suggest a Tool
-          </a>
+          </Link>
         </div>
       </div>
-
-      {/* Decorative Background Circles */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-purple-100 rounded-full opacity-30 blur-3xl animate-pulse -z-10" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-100 rounded-full opacity-30 blur-3xl animate-pulse -z-10" />
     </section>
-  )
+  );
 }
