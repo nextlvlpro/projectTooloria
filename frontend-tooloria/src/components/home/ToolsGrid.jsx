@@ -3,7 +3,8 @@ import ToolCard from "../shared/ToolCard"
 
 const tools = [
   { name: 'PDF Compressor', slug: 'padf-tool/pdf-compressor', emoji: '🗜️', description: 'Easily compress PDF files to reduce their size.' },
-  { name: 'Image Resizer', slug: 'image-tool/image-resizer', emoji: '📷', description: 'Easily resize images to a specific width or height.' },
+  { name: 'Image Resizer', slug: 'image-tools/resize-compress', emoji: '📷', description: 'Easily resize images to a specific width or height.' },
+
   { name: 'CSC Form Photo Cropper', slug: 'image-tool/photo-cropper', emoji: '🪪', description: 'Crop photos for CSC forms.' },
   // Add more tools here
 ]

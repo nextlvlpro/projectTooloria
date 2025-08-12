@@ -1,6 +1,7 @@
 //rool layout.jsx
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/ui/navbar/Navbar";
 
 const poppins = Poppins({
    subsets: ['latin'],
@@ -14,8 +15,11 @@ export const metadata = {
   description: "All in one tools for your daily tasks",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+ 
+  
   return (
+
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
@@ -24,7 +28,8 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.variable} font-popi`}
       >
-        {children}
+        <Navbar />
+         {children}
       </body>
     </html>
   );
