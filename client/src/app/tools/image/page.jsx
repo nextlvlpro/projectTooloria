@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui';
+import { imageTools } from '../toolsinfo';
 
 // SEO Metadata for Image Tools Overview
 export const metadata = {
@@ -45,53 +46,7 @@ const structuredData = {
 };
 
 // Image tools data (server-side)
-const imageTools = [
-  {
-    name: 'Image Resizer',
-    href: '/tools/image/resize',
-    description: 'Resize images to specific dimensions, percentages, or common sizes. Maintain aspect ratio or stretch to exact dimensions.',
-    icon: '📏',
-    features: ['Custom dimensions', 'Percentage scaling', 'Aspect ratio lock', 'Batch processing'],
-    popular: true,
-    status: 'available'
-  },
-  {
-    name: 'Image Compressor', 
-    href: '/tools/image/compress',
-    description: 'Reduce image file size while maintaining visual quality. Perfect for web use and email attachments.',
-    icon: '🗜️',
-    features: ['Quality control', 'Size reduction', 'Multiple formats', 'Preview comparison'],
-    popular: true,
-    status: 'available'
-  },
-  {
-    name: 'Format Converter',
-    href: '/tools/image/convert',
-    description: 'Convert between JPG, PNG, WebP, GIF and other image formats. Supports modern formats for better compression.',
-    icon: '🔄',
-    features: ['Multiple formats', 'Quality settings', 'Transparency support', 'Bulk conversion'],
-    popular: false,
-    status: 'available'
-  },
-  {
-    name: 'Image Cropper',
-    href: '/tools/image/crop',
-    description: 'Crop images to specific areas, aspect ratios, or custom selections. Perfect for profile pictures and documents.',
-    icon: '✂️',
-    features: ['Custom crop areas', 'Aspect ratios', 'Precise selection', 'Preview modes'],
-    popular: false,
-    status: 'coming-soon'
-  },
-  {
-    name: 'Background Remover',
-    href: '/tools/image/remove-bg',
-    description: 'Automatically remove backgrounds from images using AI. Great for product photos and portraits.',
-    icon: '🎭',
-    features: ['AI-powered removal', 'Edge detection', 'Manual refinement', 'Transparent output'],
-    popular: false,
-    status: 'coming-soon'
-  }
-];
+
 
 // Common use cases for service centers
 const useCases = [

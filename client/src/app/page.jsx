@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui";
+import { toolCategories } from "./tools/toolsinfo";
 
 // SEO Metadata (Server-side)
 export const metadata = {
@@ -83,61 +84,6 @@ const structuredData = {
 };
 
 // Tool categories data (server-side)
-const toolCategories = [
-  {
-    title: "PDF Tools",
-    icon: "📄",
-    description: "Merge, split, compress and convert PDF files",
-    tools: [
-      "PDF Merger",
-      "PDF Splitter",
-      "PDF Compressor",
-      "PDF to Images",
-      "Images to PDF",
-    ],
-    href: "/tools/pdf",
-    color: "bg-blue-500",
-  },
-  {
-    title: "Image Tools",
-    icon: "🖼️",
-    description: "Resize, compress and edit images efficiently",
-    tools: [
-      "Image Resizer",
-      "Image Compressor",
-      "Format Converter",
-      "Background Remover",
-    ],
-    href: "/tools/image",
-    color: "bg-green-500",
-  },
-  {
-    title: "Form Tools",
-    icon: "📝",
-    description: "Generate and fill forms automatically",
-    tools: [
-      "Form Generator",
-      "Auto Fill",
-      "Digital Signatures",
-      "QR Generator",
-    ],
-    href: "/tools/form",
-    color: "bg-purple-500",
-  },
-  {
-    title: "Utility Tools",
-    icon: "🔧",
-    description: "Text extraction, converters and calculators",
-    tools: [
-      "OCR Text Extract",
-      "File Converter",
-      "Calculator",
-      "Date Converter",
-    ],
-    href: "/tools/utility",
-    color: "bg-orange-500",
-  },
-];
 
 // Features data (server-side)
 const features = [

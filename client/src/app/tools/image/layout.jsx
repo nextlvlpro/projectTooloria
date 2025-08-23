@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { imageTools } from '../toolsinfo';
 
 export const metadata = {
   title: 'Image Tools - Resize, Compress & Edit Images | Tooloria',
@@ -24,43 +25,7 @@ export const metadata = {
 };
 
 // Image tools navigation data
-const imageTools = [
-  {
-    name: 'Image Resizer',
-    href: '/tools/image',
-    description: 'Resize images to specific dimensions or percentages',
-    icon: '📏',
-    status: 'available'
-  },
-  {
-    name: 'Image Compressor',
-    href: '/tools/image/compress',
-    description: 'Reduce image file size while maintaining quality',
-    icon: '🗜️',
-    status: 'available'
-  },
-  {
-    name: 'Format Converter',
-    href: '/tools/image/convert',
-    description: 'Convert between JPG, PNG, WebP and other formats',
-    icon: '🔄',
-    status: 'available'
-  },
-  {
-    name: 'Image Cropper',
-    href: '/tools/image/crop',
-    description: 'Crop images to specific areas or aspect ratios',
-    icon: '✂️',
-    status: 'coming-soon'
-  },
-  {
-    name: 'Background Remover',
-    href: '/tools/image/remove-bg',
-    description: 'Remove background from images automatically',
-    icon: '🎭',
-    status: 'coming-soon'
-  }
-];
+
 
 export default function ImageToolsLayout({ children }) {
   return (
