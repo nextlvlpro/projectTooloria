@@ -26,32 +26,32 @@ export const toolCategories = [
       href: "/tools/image",
       color: "bg-green-500",
     },
-    {
-      title: "Form Tools",
-      icon: "📝",
-      description: "Generate and fill forms automatically",
-      tools: [
-        "Form Generator",
-        "Auto Fill",
-        "Digital Signatures",
-        "QR Generator",
-      ],
-      href: "/tools/form",
-      color: "bg-purple-500",
-    },
-    {
-      title: "Utility Tools",
-      icon: "🔧",
-      description: "Text extraction, converters and calculators",
-      tools: [
-        "OCR Text Extract",
-        "File Converter",
-        "Calculator",
-        "Date Converter",
-      ],
-      href: "/tools/utility",
-      color: "bg-orange-500",
-    },
+    // {
+    //   title: "Form Tools",
+    //   icon: "📝",
+    //   description: "Generate and fill forms automatically",
+    //   tools: [
+    //     "Form Generator",
+    //     "Auto Fill",
+    //     "Digital Signatures",
+    //     "QR Generator",
+    //   ],
+    //   href: "/tools/form",
+    //   color: "bg-purple-500",
+    // },
+    // {
+    //   title: "Utility Tools",
+    //   icon: "🔧",
+    //   description: "Text extraction, converters and calculators",
+    //   tools: [
+    //     "OCR Text Extract",
+    //     "File Converter",
+    //     "Calculator",
+    //     "Date Converter",
+    //   ],
+    //   href: "/tools/utility",
+    //   color: "bg-orange-500",
+    // },
   ];
 
 
@@ -116,4 +116,75 @@ export const toolCategories = [
       popular: true,
       status: 'coming-soon'
     },
+  ];
+
+
+
+  // Add this to your toolsinfo.js file
+
+// Add this to your existing toolsinfo.js file after the imageTools array
+
+// Add this to your existing toolsinfo.js file
+
+export const pdfTools = [
+    {
+      name: 'PDF Merger',
+      href: '/tools/pdf/merge',
+      description: 'Combine multiple PDF files into a single document. Perfect for merging contracts, reports, and documentation for government applications.',
+      sidebarDescription: 'Combine multiple PDFs into one.',
+      icon: '📄',
+      features: ['Multiple file upload', 'Drag to reorder', 'Quality preservation', 'Instant processing'],
+      popular: true,
+      status: 'available'
+    },
+    {
+      name: 'PDF Splitter',
+      href: '/tools/pdf/split',
+      description: 'Split PDF into individual pages or extract specific page ranges. Great for separating chapters, forms, or document sections.',
+      sidebarDescription: 'Split PDF into separate files.',
+      icon: '✂️',
+      features: ['Page range selection', 'Individual pages', 'Batch extraction', 'Preview pages'],
+      popular: true,
+      status: 'coming-soon'
+    },
+    {
+      name: 'PDF Compressor',
+      href: '/tools/pdf/compress',
+      description: 'Reduce PDF file size while maintaining quality. Essential for email attachments and meeting file size requirements for online submissions.',
+      sidebarDescription: 'Reduce PDF file size.',
+      icon: '🗜️',
+      features: ['Smart compression', 'Quality control', 'Size preview', 'Batch processing'],
+      popular: true,
+      status: 'coming-soon'
+    },
+    {
+      name: 'Images to PDF',
+      href: '/tools/pdf/from-images',
+      description: 'Create PDF documents from multiple images. Ideal for scanning documents, creating photo albums, or combining images into a single PDF.',
+      sidebarDescription: 'Create PDF from images.',
+      icon: '📑',
+      features: ['Multiple image formats', 'Page ordering', 'Size optimization', 'Custom margins'],
+      popular: false,
+      status: 'coming-soon'
+    },
+    {
+      name: 'PDF to Images',
+      href: '/tools/pdf/to-images',
+      description: 'Convert PDF pages to JPG, PNG, or WebP images. Perfect for creating thumbnails, presentations, or extracting specific pages as images.',
+      sidebarDescription: 'Convert PDF pages to images.',
+      icon: '🖼️',
+      features: ['Multiple formats', 'Custom resolution', 'Page selection', 'Batch conversion'],
+      popular: false,
+      status: 'coming-soon'
+    },
+    {
+      name: 'PDF Password Remover',
+      href: '/tools/pdf/unlock',
+      description: 'Remove passwords from PDF files you own. Useful for accessing your own password-protected documents when you know the password.',
+      sidebarDescription: 'Remove PDF passwords.',
+      icon: '🔓',
+      features: ['Password removal', 'Bulk processing', 'Security verification', 'Permission unlock'],
+      popular: false,
+      status: 'coming-soon'
+    }
   ];

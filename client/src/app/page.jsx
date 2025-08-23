@@ -150,7 +150,7 @@ export default function HomePage() {
               <Link href="/tools">
                 <Button
                   size="lg"
-                  className="bg-white text-primary-800 hover:bg-gray-100 font-semibold px-8 py-4 text-lg"
+                  className="hover:bg-gray-100 font-semibold px-8 py-4 text-lg"
                 >
                   Explore All Tools
                 </Button>
@@ -186,7 +186,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {toolCategories.map((category, index) => (
               <Link
                 key={index}
