@@ -306,14 +306,11 @@ export default function ImageResizer() {
 
   // Handle file selection - we need to accumulate files ourselves
   const handleFileSelect = useCallback((newFiles) => {
-    console.log("new files", newFiles);
-
     const newFilesArray = !!newFiles
       ? Array.isArray(newFiles)
         ? newFiles
         : [newFiles]
       : [];
-    console.log("new files array", newFilesArray);
 
     setSelectedFiles(newFilesArray);
     setProcessedImages([]); // Clear previous results when new files are added
@@ -333,8 +330,6 @@ export default function ImageResizer() {
   // Process all selected images
   const handleResize = async () => {
     if (selectedFiles.length === 0) return;
-
-    console.log("Starting resize for files:", selectedFiles); // Debug log
 
     setProcessing(true);
     setProcessedImages([]);
@@ -357,21 +352,13 @@ export default function ImageResizer() {
       }
 
       const results = [];
-      console.log(`Processing ${selectedFiles.length} files...`); // Debug log
 
       // Process each file in selectedFiles array
       for (let i = 0; i < selectedFiles.length; i++) {
         const file = selectedFiles[i];
-        console.log(
-          `Processing file ${i + 1}/${selectedFiles.length}: ${file.name}`
-        ); // Debug log
         const result = await resizeImage(file, targetWidth, targetHeight, maintainAspectRatio, resizeMode);
         results.push(result);
       }
-
-      
-
-      console.log(`Completed processing ${results.length} files`); // Debug log
       setProcessedImages(results);
     } catch (error) {
       console.error("Error resizing images:", error);
