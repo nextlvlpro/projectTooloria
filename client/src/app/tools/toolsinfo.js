@@ -52,6 +52,8 @@ export const toolCategories = [
     //   href: "/tools/utility",
     //   color: "bg-orange-500",
     // },
+   
+    
   ];
 
 
@@ -155,7 +157,7 @@ export const pdfTools = [
       icon: '🗜️',
       features: ['Smart compression', 'Quality control', 'Size preview', 'Batch processing'],
       popular: true,
-      status: 'coming-soon'
+      status: 'available'
     },
     {
       name: 'Images to PDF',
@@ -178,13 +180,13 @@ export const pdfTools = [
       status: 'coming-soon'
     },
     {
-      name: 'PDF Password Remover',
-      href: '/tools/pdf/unlock',
-      description: 'Remove passwords from PDF files you own. Useful for accessing your own password-protected documents when you know the password.',
-      sidebarDescription: 'Remove PDF passwords.',
-      icon: '🔓',
-      features: ['Password removal', 'Bulk processing', 'Security verification', 'Permission unlock'],
-      popular: false,
+      name: 'Resume Builder',
+      href: '/tools/resume',
+      description: 'Create professional resumes with ease',
+      sidebarDescription: 'Create professional resumes with ease',
+      icon: '📄',
+      features: ['Multiple file upload', 'Drag to reorder', 'Quality preservation', 'Instant processing'],
+      popular: true,
       status: 'coming-soon'
-    }
+    },
   ];

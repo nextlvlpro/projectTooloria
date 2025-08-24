@@ -144,28 +144,39 @@ export const splitPdf = async (file, options = {}) => {
 /**
  * Compress PDF (basic compression)
  */
-export const compressPdf = async (file, compressionLevel = 'medium') => {
+export const compressPdf = async (selectedFile, compressionLevel = 0.5) => {
   try {
-    const arrayBuffer = await file.arrayBuffer();
-    const pdf = await PDFDocument.load(arrayBuffer);
+     const arrayBuffer = await selectedFile.arrayBuffer();
+          const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+          const newPdf = await PDFDocument.create();
     
-    // Basic compression by optimizing save options
-    const pdfBytes = await pdf.save({
-      useObjectStreams: true,
-      addDefaultPage: false,
-      objectsPerTick: 50,
-    });
-
-    const compressedFile = new File([pdfBytes], file.name, { type: 'application/pdf' });
+          for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const viewport = page.getViewport({ scale: 0.5 });
+            const canvas = document.createElement("canvas");
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            const ctx = canvas.getContext("2d");
+            await page.render({ canvasContext: ctx, viewport }).promise;
     
-    return {
-      original: file,
-      compressed: compressedFile,
-      originalSize: file.size,
-      compressedSize: compressedFile.size,
-      compressionRatio: Math.round((1 - compressedFile.size / file.size) * 100),
-      url: URL.createObjectURL(compressedFile)
-    };
+            const imgBlob = await new Promise((resolve) =>
+              canvas.toBlob((b) => resolve(b), "image/jpeg", compressionLevel)
+            );
+    
+            const imgBytes = await imgBlob.arrayBuffer();
+            const img = await newPdf.embedJpg(imgBytes);
+            const pdfPage = newPdf.addPage([img.width, img.height]);
+            pdfPage.drawImage(img, { x: 0, y: 0, width: img.width, height: img.height });
+          }
+    
+          const compressedBytes = await newPdf.save();
+          const compressed = new File(
+            [compressedBytes],
+            selectedFile.name.replace(".pdf", "_compressed.pdf"),
+            { type: "application/pdf" }
+          );
+          return compressed;
+    
   } catch (error) {
     console.error('Error compressing PDF:', error);
     throw new Error('Failed to compress PDF. Please ensure the file is a valid PDF.');

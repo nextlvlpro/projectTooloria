@@ -39,7 +39,7 @@ export const pdfToolsSEOConfig = {
         canonical: "https://tooloria.org/tools/pdf/split"
       },
   
-      compressor: {
+      compress: {
         title: "PDF Compressor - Reduce PDF File Size Online | Tooloria",
         description: "Compress PDF files to reduce size while maintaining quality. Free PDF compression tool for uploading to government portals and email attachments.",
         keywords: ["pdf compressor", "reduce pdf size", "compress pdf file", "pdf size reducer"],
