@@ -145,7 +145,7 @@ export const pdfTools = [
       icon: '✂️',
       features: ['Page range selection', 'Individual pages', 'Batch extraction', 'Preview pages'],
       popular: true,
-      status: 'coming-soon'
+      status: 'available'
     },
     {
       name: 'PDF Compressor',

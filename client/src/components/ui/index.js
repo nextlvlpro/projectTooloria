@@ -11,3 +11,5 @@ export {
   SkeletonLoader,
   LoadingOverlay
 } from './LoadingSpinner';
+
+export { PDFPreview } from './PDFPreview';

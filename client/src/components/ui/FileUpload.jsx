@@ -51,7 +51,7 @@ const FileUpload = forwardRef(({
   };
 
   const handleFiles = (fileList) => {
-    
+    console.log("file list",fileList);
     
     const filesArray = Array.from(fileList);
     const validFiles = [];
@@ -115,6 +115,9 @@ const FileUpload = forwardRef(({
 
   const removeFile = (index) => {
     const newFiles = files.filter((_, i) => i !== index);
+    if (!multiple && inputRef.current){
+      inputRef.current.value = '';
+    }
     setFiles(newFiles);
     if (onFileSelect) {
       onFileSelect(multiple ? newFiles : null);
@@ -129,6 +132,9 @@ const FileUpload = forwardRef(({
 
   const clearAllFiles = () => {
     setFiles([]);
+    if (inputRef.current) {
+      inputRef.current.value = ''; // Reset the input so same file can be selected again
+    }
     if (clearFileInstruction) {
       clearFileInstruction();
     }
