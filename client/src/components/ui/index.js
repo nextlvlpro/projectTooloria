@@ -12,4 +12,4 @@ export {
   LoadingOverlay
 } from './LoadingSpinner';
 
-export { PDFPreview } from './PDFPreview';
+export { default as PDFPreview } from './PDFPreview';
