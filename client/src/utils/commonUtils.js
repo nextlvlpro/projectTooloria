@@ -16,4 +16,9 @@ export const downloadImage = (result) => {
 };
 
 
+export const fileNameShortener = (fileName) => {
+  if (fileName.length <= 20) return fileName;
+  return `${fileName.slice(0, 10)}...${fileName.slice(-10)}`;
+};
+
 

@@ -20,7 +20,6 @@ export default function PDFSplitter() {
   const [selectedPages, setSelectedPages] = useState(new Set());
 
   const handleFileSelect = useCallback(async (fileOrFiles) => {
-    console.log("Files received:", fileOrFiles); // Debug log
     
     // Clear previous state first
     setSplitFiles([]);

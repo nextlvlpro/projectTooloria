@@ -2,6 +2,7 @@
 
 import { forwardRef, useRef, useState } from 'react';
 import { Button } from './Button';
+import { fileNameShortener } from '@/utils/commonUtils';
 
 const FileUpload = forwardRef(({
   accept,
@@ -51,7 +52,6 @@ const FileUpload = forwardRef(({
   };
 
   const handleFiles = (fileList) => {
-    console.log("file list",fileList);
     
     const filesArray = Array.from(fileList);
     const validFiles = [];
@@ -71,9 +71,6 @@ const FileUpload = forwardRef(({
     }
 
     if (validFiles.length > 0) {
-      console.log("already added files",files);
-      
-      console.log("valid files",validFiles);
       let allFiles = multiple ?  [...files, ...validFiles] : [validFiles[0]]
       
       
@@ -332,8 +329,8 @@ const FileUpload = forwardRef(({
                     </svg>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300 truncate">
-                      {file.name}
+                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300 truncate break-words">
+                      {fileNameShortener(file?.name)}
                     </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
                       {formatFileSize(file.size)} • {file.type || 'Unknown type'}
