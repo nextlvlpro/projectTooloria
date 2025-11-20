@@ -1,65 +1,78 @@
 import ImageResizer from './components/Resize';
+import {
+  imageToolsSEOConfig,
+  generateImageToolStructuredData,
+  generateImageBreadcrumbData,
+  generateImageFAQData,
+} from "../imageToolsSEOConfig";
 
+// SEO metadata for Image Resizer
 export const metadata = {
-  title: 'Image Resizer - Resize Photos to Any Size | Tooloria',
-  description: 'Free online image resizer tool. Resize photos to popular sizes or custom dimensions. Perfect for service centers, social media, and web use. Supports JPG, PNG, WebP formats.',
-  keywords: [
-    'image resizer',
-    'resize photo online',
-    'photo resizer',
-    'image size converter',
-    'resize picture',
-    'photo dimensions',
-    'image pixel size',
-    'service center image tools'
-  ],
+  title: imageToolsSEOConfig.tools.resize.title,
+  description: imageToolsSEOConfig.tools.resize.description,
+  keywords: imageToolsSEOConfig.tools.resize.keywords,
   openGraph: {
-    title: 'Free Image Resizer Tool | Tooloria',
-    description: 'Resize images to popular sizes or custom dimensions instantly. Perfect for service centers and digital applications.',
-    type: 'website',
+    title: imageToolsSEOConfig.tools.resize.title,
+    description: imageToolsSEOConfig.tools.resize.description,
+    type: "website",
+    url: imageToolsSEOConfig.tools.resize.canonical,
   },
-};
-
-// Structured data for Image Resizer
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Tooloria Image Resizer",
-  "description": "Free online tool to resize images to specific dimensions or popular sizes",
-  "url": "https://tooloria.org/tools/image/resize",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Web Browser",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "INR"
+  twitter: {
+    card: "summary_large_image",
+    title: imageToolsSEOConfig.tools.resize.title,
+    description: imageToolsSEOConfig.tools.resize.description,
   },
-  "featureList": [
-    "Resize to popular sizes",
-    "Custom dimensions",
-    "Batch processing",
-    "Maintain aspect ratio",
-    "Multiple format support"
-  ]
+  alternates: {
+    canonical: imageToolsSEOConfig.tools.resize.canonical,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function ImageResizerPage() {
+  // Generate structured data
+  const toolStructuredData = generateImageToolStructuredData(
+    "resize",
+    imageToolsSEOConfig.tools.resize
+  );
+  const breadcrumbData = generateImageBreadcrumbData("resize");
+  const faqData = generateImageFAQData("resize");
+
   return (
     <>
       {/* Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolStructuredData) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
+      />
+      {faqData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+        />
+      )}
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header Section */}
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Image Resizer
+            {imageToolsSEOConfig.tools.resize.h1}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
-            Resize your images to popular sizes or custom dimensions. Perfect for social media, 
+            Resize your images to popular sizes or custom dimensions. Perfect for social media,
             web use, and printing. All processing happens in your browser - your images stay private.
           </p>
           <div className="flex flex-wrap justify-center gap-2 text-sm">
@@ -83,7 +96,7 @@ export default function ImageResizerPage() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
             Why Use Our Image Resizer?
           </h2>
-          
+
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="text-3xl mb-3">🎯</div>

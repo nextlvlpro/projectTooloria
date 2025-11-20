@@ -1,65 +1,80 @@
 import ImageCompressor from './components/Compressor';
+import {
+  imageToolsSEOConfig,
+  generateImageToolStructuredData,
+  generateImageBreadcrumbData,
+  generateImageFAQData,
+} from "../imageToolsSEOConfig";
 
+// SEO metadata for Image Compressor
 export const metadata = {
-  title: 'Image Compressor - Reduce Photo Size Online | Tooloria',
-  description: 'Free online image compressor tool. Compress images to popular government form sizes or custom size. Perfect for service centers and online forms.',
-  keywords: [
-    'image compressor',
-    'compress photo online',
-    'reduce image size',
-    'resize photo kb',
-    'ssc photo size',
-    'passport photo compress',
-    'service center image tools'
-  ],
+  title: imageToolsSEOConfig.tools.compress.title,
+  description: imageToolsSEOConfig.tools.compress.description,
+  keywords: imageToolsSEOConfig.tools.compress.keywords,
   openGraph: {
-    title: 'Free Image Compressor Tool | Tooloria',
-    description: 'Compress images to popular government sizes (KB) or custom size instantly. Perfect for form filling and digital applications.',
-    type: 'website',
+    title: imageToolsSEOConfig.tools.compress.title,
+    description: imageToolsSEOConfig.tools.compress.description,
+    type: "website",
+    url: imageToolsSEOConfig.tools.compress.canonical,
   },
-};
-
-// Structured data for SEO
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Tooloria Image Compressor",
-  "description": "Free online tool to compress images to specific KB sizes or popular government standards",
-  "url": "https://tooloria.org/tools/image/compress",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Web Browser",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "INR"
+  twitter: {
+    card: "summary_large_image",
+    title: imageToolsSEOConfig.tools.compress.title,
+    description: imageToolsSEOConfig.tools.compress.description,
   },
-  "featureList": [
-    "Compress to popular government KB sizes",
-    "Custom target size",
-    "Batch processing",
-    "Maintain quality",
-    "Multiple format support"
-  ]
+  alternates: {
+    canonical: imageToolsSEOConfig.tools.compress.canonical,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function ImageCompressorPage() {
+  // Generate structured data
+  const toolStructuredData = generateImageToolStructuredData(
+    "compress",
+    imageToolsSEOConfig.tools.compress
+  );
+  const breadcrumbData = generateImageBreadcrumbData("compress");
+  const faqData = generateImageFAQData("compress");
+
   return (
     <>
       {/* Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolStructuredData) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
+      />
+      {faqData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+        />
+      )}
+
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Image Compressor
+            {imageToolsSEOConfig.tools.compress.h1}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
-            Compress your images to required KB sizes for forms and applications. 
-            Perfect for SSC, UPSC, PAN, Aadhaar, and more. All processing happens 
+            Compress your images to required KB sizes for forms and applications.
+            Perfect for SSC, UPSC, PAN, Aadhaar, and more. All processing happens
             in your browser – your images stay private.
           </p>
           <div className="flex flex-wrap justify-center gap-2 text-sm">
@@ -83,7 +98,7 @@ export default function ImageCompressorPage() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
             Why Use Our Image Resizer?
           </h2>
-          
+
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="text-3xl mb-3">🎯</div>
