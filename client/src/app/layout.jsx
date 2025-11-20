@@ -68,7 +68,7 @@ export const metadata = {
         type: 'image/png',
       },
       {
-        rel: 'icon', 
+        rel: 'icon',
         url: '/android-chrome-512x512.png',
         sizes: '512x512',
         type: 'image/png',
@@ -85,10 +85,10 @@ export default function RootLayout({ children }) {
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+
         {/* Theme color */}
         <meta name="theme-color" content="#0ea5e9" />
-        
+
         {/* Viewport meta tag for mobile */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
